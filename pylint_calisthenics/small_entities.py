@@ -2,15 +2,11 @@
 
 from astroid import If
 from pylint.checkers import BaseChecker
-from pylint.checkers.utils import check_messages
-from pylint.interfaces import IAstroidChecker
 
 
 class SmallEntitiesChecker(BaseChecker):
     """checks for classes and modules to be smaller than number of statements."""
     # copied from Pylint's MisdesignChecker in design_analysis.py
-
-    __implements__ = IAstroidChecker
 
     # configuration section name
     name = 'small-entities'
@@ -35,7 +31,6 @@ class SmallEntitiesChecker(BaseChecker):
         """reset module statements counter"""
         self._module_statements = 0
 
-    @check_messages('large-module')
     def leave_module(self, node):
         """check number of module statements"""
         if self._module_statements > self._max_class_statements:
@@ -46,7 +41,6 @@ class SmallEntitiesChecker(BaseChecker):
         """reset class statements counter"""
         self._class_statements = 0
 
-    @check_messages('large-entity')
     def leave_classdef(self, node):
         """check number of class statements"""
 
@@ -95,8 +89,6 @@ class SmallEntitiesChecker(BaseChecker):
 class SmallModulesChecker(BaseChecker):
     """checks for modules to have less than number of classes."""
 
-    __implements__ = IAstroidChecker
-
     # configuration section name
     name = 'small-modules'
     priority = -1
@@ -116,7 +108,6 @@ class SmallModulesChecker(BaseChecker):
         """reset class counter"""
         self._classes = 0
 
-    @check_messages('too-many-classes')
     def leave_module(self, node):
         """check number of overall classes"""
 

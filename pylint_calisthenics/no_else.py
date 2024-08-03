@@ -3,14 +3,10 @@
 # see https://breadcrumbscollector.tech/writing-custom-checkers-for-pylint/
 # see https://pylint.readthedocs.io/en/latest/how_tos/custom_checkers.html
 from pylint.checkers import BaseChecker
-from pylint.checkers.utils import check_messages
-from pylint.interfaces import IAstroidChecker
 
 
 class NoElseChecker(BaseChecker):
     """checks for else keyword."""
-
-    __implements__ = IAstroidChecker
 
     # configuration section name
     name = 'no-else'
@@ -22,7 +18,7 @@ class NoElseChecker(BaseChecker):
     }
     options = ()
 
-    @check_messages('if-has-else')
+    #@check_messages('if-has-else')
     def visit_if(self, node):
         """check if for else"""
         if node.orelse:

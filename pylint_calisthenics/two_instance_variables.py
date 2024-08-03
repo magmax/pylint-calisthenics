@@ -3,14 +3,10 @@
 # see https://pylint.readthedocs.io/en/latest/how_tos/custom_checkers.html
 import six
 from pylint.checkers import BaseChecker
-from pylint.checkers.utils import check_messages
-from pylint.interfaces import IAstroidChecker
 
 
 class TwoInstanceVariablesChecker(BaseChecker):
     """checks for number of instance variables."""
-
-    __implements__ = IAstroidChecker
 
     # configuration section name
     name = 'two-instance-variables'
@@ -22,7 +18,6 @@ class TwoInstanceVariablesChecker(BaseChecker):
     }
     options = ()
 
-    @check_messages('more-than-two-instance-variables')
     def visit_classdef(self, node):
         """check number of class attributes"""
         attribute_count = 0

@@ -2,14 +2,10 @@
 
 import astroid
 from pylint.checkers import BaseChecker
-from pylint.checkers.utils import check_messages
-from pylint.interfaces import IAstroidChecker
 
 
 class ChainedCallsChecker(BaseChecker):
     """checks chain with call in the end."""
-
-    __implements__ = IAstroidChecker
 
     # configuration section name
     name = 'nested-call'
@@ -33,7 +29,6 @@ class ChainedCallsChecker(BaseChecker):
         for name in node.names:
             self.imports += [name[0]]
 
-    @check_messages('chained-call')
     def visit_call(self, node):
         """check call's func"""
 
@@ -73,8 +68,6 @@ class ChainedCallsChecker(BaseChecker):
 class ChainedPropertiesChecker(BaseChecker):
     """checks chain with attribute in the end."""
 
-    __implements__ = IAstroidChecker
-
     # configuration section name
     name = 'nested-attribute'
     priority = -1
@@ -97,7 +90,6 @@ class ChainedPropertiesChecker(BaseChecker):
         for name in node.names:
             self.imports += [name[0]]
 
-    @check_messages('chained-attribute')
     def visit_attribute(self, node):
         """check attributes expr"""
 

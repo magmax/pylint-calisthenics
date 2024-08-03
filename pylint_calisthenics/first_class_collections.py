@@ -3,14 +3,10 @@
 import astroid
 import six
 from pylint.checkers import BaseChecker
-from pylint.checkers.utils import check_messages
-from pylint.interfaces import IAstroidChecker
 
 
 class FirstClassCollectionsChecker(BaseChecker):
     """checks for collection attributes to be the only field."""
-
-    __implements__ = IAstroidChecker
 
     # configuration section name
     name = 'first-class-collections'
@@ -22,7 +18,6 @@ class FirstClassCollectionsChecker(BaseChecker):
     }
     options = ()
 
-    @check_messages('collection-not-first-class')
     def visit_classdef(self, node):
         """check class attributes"""
         attribute_count = 0

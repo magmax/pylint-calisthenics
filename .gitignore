@@ -1,3 +1,6 @@
+__pypackages__/
+.venv/
+__pycache__/
+
 .pdm-python
-__pypackages__
-.venv
+.coverage

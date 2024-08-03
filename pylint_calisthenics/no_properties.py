@@ -3,14 +3,10 @@
 import six
 from astroid import Decorators, Name, Attribute
 from pylint.checkers import BaseChecker
-from pylint.checkers.utils import check_messages
-from pylint.interfaces import IAstroidChecker
 
 
 class NoPublicAttributesChecker(BaseChecker):
     """checks for public attributes - all fields must be private."""
-
-    __implements__ = IAstroidChecker
 
     # configuration section name
     name = 'no-public-attributes'
@@ -22,7 +18,6 @@ class NoPublicAttributesChecker(BaseChecker):
     }
     options = ()
 
-    @check_messages('has-public-attributes')
     def visit_classdef(self, node):
         """check visibility (name) of class attributes"""
         for attr, _ in six.iteritems(node.instance_attrs):
@@ -35,8 +30,6 @@ class NoPublicAttributesChecker(BaseChecker):
 class NoPropertiesChecker(BaseChecker):
     """checks for properties - do not use property decorator or property
        method in class scope."""
-
-    __implements__ = IAstroidChecker
 
     # configuration section name
     name = 'no-properties'
@@ -53,7 +46,6 @@ class NoPropertiesChecker(BaseChecker):
         self._in_class = False
         self._in_function = False
 
-    @check_messages('has-properties')
     def visit_functiondef(self, node):
         """check if for property decorator"""
         self._in_function = True
@@ -88,7 +80,6 @@ class NoPropertiesChecker(BaseChecker):
         """remember being outside class"""
         self._in_class = False
 
-    @check_messages('has-properties')
     def visit_call(self, node):
         """check for call to property method in class scope"""
         if not self._in_class or self._in_function:
