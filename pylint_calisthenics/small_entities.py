@@ -6,18 +6,23 @@ from pylint.checkers import BaseChecker
 
 class SmallEntitiesChecker(BaseChecker):
     """checks for classes and modules to be smaller than number of statements."""
+
     # copied from Pylint's MisdesignChecker in design_analysis.py
 
     # configuration section name
-    name = 'small-entities'
+    name = "small-entities"
     priority = -1
     msgs = {
-        'R1271': ('Large entity "%s" (%s/%s statements)',
-                  'large-entity',
-                  'Object Calisthenics Rule 7'),
-        'R1272': ('Large module "%s" (%s/%s statements)',
-                  'large-module',
-                  'Object Calisthenics Rule 7'),
+        "R1271": (
+            'Large entity "%s" (%s/%s statements)',
+            "large-entity",
+            "Object Calisthenics Rule 7",
+        ),
+        "R1272": (
+            'Large module "%s" (%s/%s statements)',
+            "large-module",
+            "Object Calisthenics Rule 7",
+        ),
     }
     options = ()
 
@@ -34,8 +39,11 @@ class SmallEntitiesChecker(BaseChecker):
     def leave_module(self, node):
         """check number of module statements"""
         if self._module_statements > self._max_class_statements:
-            self.add_message('large-module', node=node,
-                             args=(node.name, self._module_statements, self._max_class_statements))
+            self.add_message(
+                "large-module",
+                node=node,
+                args=(node.name, self._module_statements, self._max_class_statements),
+            )
 
     def visit_classdef(self, node):  # pylint: disable=unused-argument
         """reset class statements counter"""
@@ -48,13 +56,16 @@ class SmallEntitiesChecker(BaseChecker):
         self._module_statements -= self._class_statements
 
         # stop here for exception, metaclass and interface classes
-        if node.type != 'class':
+        if node.type != "class":
             return
 
         # check number of statements
         if self._class_statements > self._max_class_statements:
-            self.add_message('large-entity', node=node,
-                             args=(node.name, self._class_statements, self._max_class_statements))
+            self.add_message(
+                "large-entity",
+                node=node,
+                args=(node.name, self._class_statements, self._max_class_statements),
+            )
 
     def visit_default(self, node):
         """default visit method increments the statements counter"""
@@ -76,8 +87,7 @@ class SmallEntitiesChecker(BaseChecker):
         """increments the statements counter for each branch"""
         branches = 1
         # don't double count If nodes coming from some 'elif'
-        if node.orelse and (len(node.orelse) > 1 or
-                            not isinstance(node.orelse[0], If)):
+        if node.orelse and (len(node.orelse) > 1 or not isinstance(node.orelse[0], If)):
             branches += 1
         self._inc(branches)
 
@@ -90,12 +100,14 @@ class SmallModulesChecker(BaseChecker):
     """checks for modules to have less than number of classes."""
 
     # configuration section name
-    name = 'small-modules'
+    name = "small-modules"
     priority = -1
     msgs = {
-        'R1273': ('Too many classes in module "%s" (%s/%s classes)',
-                  'too-many-classes',
-                  'Object Calisthenics Rule 7'),
+        "R1273": (
+            'Too many classes in module "%s" (%s/%s classes)',
+            "too-many-classes",
+            "Object Calisthenics Rule 7",
+        ),
     }
     options = ()
 
@@ -113,8 +125,11 @@ class SmallModulesChecker(BaseChecker):
 
         # check number of statements
         if self._classes > self._max_classes:
-            self.add_message('too-many-classes', node=node,
-                             args=(node.name, self._classes, self._max_classes))
+            self.add_message(
+                "too-many-classes",
+                node=node,
+                args=(node.name, self._classes, self._max_classes),
+            )
 
     def visit_classdef(self, node):  # pylint: disable=unused-argument
         """increments the class counter"""
@@ -122,6 +137,6 @@ class SmallModulesChecker(BaseChecker):
 
 
 def register(linter):
-    """required method to auto register this checker """
+    """required method to auto register this checker"""
     linter.register_checker(SmallEntitiesChecker(linter))
     linter.register_checker(SmallModulesChecker(linter))

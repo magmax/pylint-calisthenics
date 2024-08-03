@@ -9,22 +9,24 @@ class NoElseChecker(BaseChecker):
     """checks for else keyword."""
 
     # configuration section name
-    name = 'no-else'
+    name = "no-else"
     priority = -1
     msgs = {
-        'R1221': ('Don\'t use the ELSE keyword',
-                  'if-has-else',
-                  'Object Calisthenics Rule 2'),
+        "R1221": (
+            "Don't use the ELSE keyword",
+            "if-has-else",
+            "Object Calisthenics Rule 2",
+        ),
     }
     options = ()
 
-    #@check_messages('if-has-else')
+    # @check_messages('if-has-else')
     def visit_if(self, node):
         """check if for else"""
         if node.orelse:
-            self.add_message('if-has-else', node=node)
+            self.add_message("if-has-else", node=node)
 
 
 def register(linter):
-    """required method to auto register this checker """
+    """required method to auto register this checker"""
     linter.register_checker(NoElseChecker(linter))

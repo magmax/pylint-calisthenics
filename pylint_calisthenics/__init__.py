@@ -6,20 +6,23 @@
 # * DONE
 
 # 2. Don't use the ELSE keyword
-from . import no_else
+from . import no_else  # pylint:disable=unused-import # noqa: F401
+
 # * also Pylint's "checkers.refactoring", max-nested-blocks=1
 # * DONE
 
 # 3. Wrap all primitives and Strings
 
 # 4. First class collections
-from . import first_class_collections
+from . import first_class_collections  # pylint:disable=unused-import # noqa: F401
+
 # * knows [], (), list(), set() and comprehensions.
 # TODO add support for more types of collections.
 # * (kind of) DONE
 
 # 5. One dot per line
-from . import one_dot_per_line
+from . import one_dot_per_line  # pylint:disable=unused-import # noqa: F401
+
 # TODO deal with imports with a dot, e.g. os.path -> put "path" into imported list.
 # * DONE
 
@@ -28,16 +31,19 @@ from . import one_dot_per_line
 # * good-names=reset
 
 # 7. Keep all entities small
-from . import small_entities
+from . import small_entities  # pylint:disable=unused-import # noqa: F401
+
 # * no class over 45 statements, no module over 10 classes, no module over 45 statements.
 # * (kind of) DONE
 
 # 8. No classes with more than two instance variables
-from . import two_instance_variables
+from . import two_instance_variables  # pylint:disable=unused-import # noqa: F401
+
 # * also Pylint's "checkers.design_analysis", max-attributes=2
 # * DONE
 
 # 9. No getters/setters/properties
-#from . import no_properties
+from . import no_properties  # pylint:disable=unused-import # noqa: F401
+
 # TODO do not use manual getters/setters
 # * (kind of) DONE

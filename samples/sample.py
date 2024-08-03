@@ -1,4 +1,4 @@
-class GoodFieldsSample(object):
+class GoodFieldsSample:
     def __init__(self):
         self._a = 0
         self._b = 0
@@ -8,7 +8,7 @@ class GoodFieldsSample(object):
             self._a = 0
 
 
-class BadFieldsSample(object):
+class BadFieldsSample:
     def __init__(self):
         self._a = 0
         self._b = 0
@@ -21,48 +21,48 @@ class BadFieldsSample(object):
             self._a = self._third_field
 
 
-class BadCollectionSample1(object):
+class BadCollectionSample1:
     def __init__(self):
         self._a = []
         self._b = 0
 
 
-class BadCollectionSample2(object):
+class BadCollectionSample2:
     def __init__(self):
         self._a = [a for a in [1, 2, 3]]
         self._b = 0
 
 
-class BadCollectionSample3(object):
+class BadCollectionSample3:
     def __init__(self):
         self._a = list()
         self._b = 0
 
 
-class BadCollectionSample4(object):
+class BadCollectionSample4:
     def __init__(self):
         self._a = set()
         self._b = 0
 
 
-class BadCollectionSample5(object):
+class BadCollectionSample5:
     def __init__(self):
-        self._a = (1, 'a')
+        self._a = (1, "a")
         self._b = 0
 
 
-class BadCollectionSample6(object):
+class BadCollectionSample6:
     def __init__(self):
-        self._a = {'a': 1}
+        self._a = {"a": 1}
         self._b = 0
 
 
-class GoodCollectionSample(object):
+class GoodCollectionSample:
     def __init__(self):
         self._a = []
 
 
-class BadIndentationSample(object):
+class BadIndentationSample:
     def __init__(self):
         self._a = 0
 
@@ -84,7 +84,7 @@ class BadIndentationSample(object):
                 self._a = 1
 
 
-class ElseSample(object):
+class ElseSample:
     def __init__(self):
         self._a = 0
 
@@ -96,7 +96,7 @@ class ElseSample(object):
             self._a = 2
 
 
-class JustOkSizeSample(object):
+class JustOkSizeSample:
     def __init__(self):
         self._a = 0
 
@@ -148,7 +148,7 @@ class JustOkSizeSample(object):
         self._a = 1
 
 
-class TooLargeSizeSample(object):
+class TooLargeSizeSample:
     def __init__(self):
         self._a = 0
 
@@ -202,7 +202,7 @@ class TooLargeSizeSample(object):
         self._a = 1
 
 
-class BadProperties1(object):
+class BadProperties1:
     def __init__(self):
         self._temperature = 0
         self.public_property = 0
@@ -218,7 +218,7 @@ class BadProperties1(object):
     temperature = property(get_temperature, set_temperature)
 
 
-class BadProperties2(object):
+class BadProperties2:
     def __init__(self):
         self._temperature = 0
 

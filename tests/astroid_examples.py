@@ -1,6 +1,5 @@
 """Exploring Astroid's AST."""
 
-from __future__ import print_function
 import re
 import astroid
 
@@ -19,7 +18,7 @@ def traverse(astroid_node, visitor):
     visitor.leave(astroid_node)
 
 
-class DumpAsXmlVisitor(object):
+class DumpAsXmlVisitor:
     """Visit all nodes as XML as done by PMD."""
 
     def __init__(self):
@@ -58,12 +57,14 @@ def dump(astroid_node):
     traverse(astroid_node, DumpAsXmlVisitor())
 
 
-if __name__ == '__main__':
-    NODE = astroid.parse("""
+if __name__ == "__main__":
+    NODE = astroid.parse(
+        """
         import os.path
 
         os.path.join("", "")
-        """)
+        """
+    )
 
     # print("\n\ncode")
     # to_code(node.root())
