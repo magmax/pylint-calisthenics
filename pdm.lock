@@ -566,9 +566,15 @@ dependencies = [
     "platformdirs<5,>=3.9.1",
 ]
 
+[[package]]
+name = "wheel"
+version = "0.43.0"
+requires_python = ">=3.8"
+summary = "A built-package format for Python"
+
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:ef2f2c0897cb459f350b26069f6b1db0bb964f243f7552399978b2cdb8dc6bd4"
+content_hash = "sha256:203206aa4e50cb520f68d23bdb7f685456095bbe431ba018934cdabc5a06879e"
 
 [metadata.files]
 "annotated-types 0.7.0" = [
@@ -1316,4 +1322,8 @@ content_hash = "sha256:ef2f2c0897cb459f350b26069f6b1db0bb964f243f7552399978b2cdb
 "virtualenv 20.26.3" = [
     {url = "https://files.pythonhosted.org/packages/07/4d/410156100224c5e2f0011d435e477b57aed9576fc7fe137abcf14ec16e11/virtualenv-20.26.3-py3-none-any.whl", hash = "sha256:8cc4a31139e796e9a7de2cd5cf2489de1217193116a8fd42328f1bd65f434589"},
     {url = "https://files.pythonhosted.org/packages/68/60/db9f95e6ad456f1872486769c55628c7901fb4de5a72c2f7bdd912abf0c1/virtualenv-20.26.3.tar.gz", hash = "sha256:4c43a2a236279d9ea36a0d76f98d84bd6ca94ac4e0f4a3b9d46d05e10fea542a"},
+]
+"wheel 0.43.0" = [
+    {url = "https://files.pythonhosted.org/packages/7d/cd/d7460c9a869b16c3dd4e1e403cce337df165368c71d6af229a74699622ce/wheel-0.43.0-py3-none-any.whl", hash = "sha256:55c570405f142630c6b9f72fe09d9b67cf1477fcf543ae5b8dcb1f5b7377da81"},
+    {url = "https://files.pythonhosted.org/packages/b8/d6/ac9cd92ea2ad502ff7c1ab683806a9deb34711a1e2bd8a59814e8fc27e69/wheel-0.43.0.tar.gz", hash = "sha256:465ef92c69fa5c5da2d1cf8ac40559a8c940886afcef87dcf14b9470862f1d85"},
 ]
