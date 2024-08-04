@@ -31,4 +31,5 @@ dev = [
     "pyupgrade>=3.17.0",
     "pre-commit-hooks>=4.6.0",
     "safety>=3.2.4",
+    "bandit>=1.7.9",
 ]

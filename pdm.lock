@@ -23,6 +23,18 @@ dependencies = [
 ]
 
 [[package]]
+name = "bandit"
+version = "1.7.9"
+requires_python = ">=3.8"
+summary = "Security oriented static analyser for python code."
+dependencies = [
+    "PyYAML>=5.3.1",
+    "colorama>=0.3.9; platform_system == \"Windows\"",
+    "rich",
+    "stevedore>=1.20.0",
+]
+
+[[package]]
 name = "black"
 version = "24.8.0"
 requires_python = ">=3.8"
@@ -241,6 +253,12 @@ name = "pathspec"
 version = "0.12.1"
 requires_python = ">=3.8"
 summary = "Utility library for gitignore style pattern matching of file paths."
+
+[[package]]
+name = "pbr"
+version = "6.0.0"
+requires_python = ">=2.6"
+summary = "Python Build Reasonableness"
 
 [[package]]
 name = "platformdirs"
@@ -487,6 +505,15 @@ requires_python = ">=2.7, !=3.0.*, !=3.1.*, !=3.2.*"
 summary = "Python 2 and 3 compatibility utilities"
 
 [[package]]
+name = "stevedore"
+version = "5.2.0"
+requires_python = ">=3.8"
+summary = "Manage dynamic plugins for Python applications"
+dependencies = [
+    "pbr!=2.1.0,>=2.0.0",
+]
+
+[[package]]
 name = "tokenize-rt"
 version = "5.2.0"
 requires_python = ">=3.8"
@@ -541,7 +568,7 @@ dependencies = [
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:d8576b732182c33dcca09d0e9407b105d0ec537447ddf814172d050295d2a9c8"
+content_hash = "sha256:ef2f2c0897cb459f350b26069f6b1db0bb964f243f7552399978b2cdb8dc6bd4"
 
 [metadata.files]
 "annotated-types 0.7.0" = [
@@ -555,6 +582,10 @@ content_hash = "sha256:d8576b732182c33dcca09d0e9407b105d0ec537447ddf814172d05029
 "authlib 1.3.1" = [
     {url = "https://files.pythonhosted.org/packages/09/47/df70ecd34fbf86d69833fe4e25bb9ecbaab995c8e49df726dd416f6bb822/authlib-1.3.1.tar.gz", hash = "sha256:7ae843f03c06c5c0debd63c9db91f9fda64fa62a42a77419fa15fbb7e7a58917"},
     {url = "https://files.pythonhosted.org/packages/87/1f/bc95e43ffb57c05b8efcc376dd55a0240bf58f47ddf5a0f92452b6457b75/Authlib-1.3.1-py2.py3-none-any.whl", hash = "sha256:d35800b973099bbadc49b42b256ecb80041ad56b7fe1216a362c7943c088f377"},
+]
+"bandit 1.7.9" = [
+    {url = "https://files.pythonhosted.org/packages/1c/a4/ee391b0f046a6d8919eef246aed7c39849e299cc2e50d918b54add397de6/bandit-1.7.9.tar.gz", hash = "sha256:7c395a436743018f7be0a4cbb0a4ea9b902b6d87264ddecf8cfdc73b4f78ff61"},
+    {url = "https://files.pythonhosted.org/packages/5b/a3/05820b7ce584a1fa01d887ec5e3274bee9f9e02a53aa63de3cb1a5ad7d24/bandit-1.7.9-py3-none-any.whl", hash = "sha256:52077cb339000f337fb25f7e045995c4ad01511e716e5daac37014b9752de8ec"},
 ]
 "black 24.8.0" = [
     {url = "https://files.pythonhosted.org/packages/04/b0/46fb0d4e00372f4a86a6f8efa3cb193c9f64863615e39010b1477e010578/black-24.8.0.tar.gz", hash = "sha256:2500945420b6784c38b9ee885af039f5e7471ef284ab03fa35ecdde4688cd83f"},
@@ -963,6 +994,10 @@ content_hash = "sha256:d8576b732182c33dcca09d0e9407b105d0ec537447ddf814172d05029
     {url = "https://files.pythonhosted.org/packages/ca/bc/f35b8446f4531a7cb215605d100cd88b7ac6f44ab3fc94870c120ab3adbf/pathspec-0.12.1.tar.gz", hash = "sha256:a482d51503a1ab33b1c67a6c3813a26953dbdc71c31dacaef9a838c4e29f5712"},
     {url = "https://files.pythonhosted.org/packages/cc/20/ff623b09d963f88bfde16306a54e12ee5ea43e9b597108672ff3a408aad6/pathspec-0.12.1-py3-none-any.whl", hash = "sha256:a0d503e138a4c123b27490a4f7beda6a01c6f288df0e4a8b79c7eb0dc7b4cc08"},
 ]
+"pbr 6.0.0" = [
+    {url = "https://files.pythonhosted.org/packages/64/dd/171c9fb653591cf265bcc89c436eec75c9bde3dec921cc236fa71e5698df/pbr-6.0.0-py2.py3-none-any.whl", hash = "sha256:4a7317d5e3b17a3dccb6a8cfe67dab65b20551404c52c8ed41279fa4f0cb4cda"},
+    {url = "https://files.pythonhosted.org/packages/8d/c2/ee43b3b11bf2b40e56536183fc9f22afbb04e882720332b6276ee2454c24/pbr-6.0.0.tar.gz", hash = "sha256:d1377122a5a00e2f940ee482999518efe16d745d423a670c27773dfbc3c9a7d9"},
+]
 "platformdirs 4.2.2" = [
     {url = "https://files.pythonhosted.org/packages/68/13/2aa1f0e1364feb2c9ef45302f387ac0bd81484e9c9a4c5688a322fbdfd08/platformdirs-4.2.2-py3-none-any.whl", hash = "sha256:2d7a1657e36a80ea911db832a8a6ece5ee53d8de21edd5cc5879af6530b1bfee"},
     {url = "https://files.pythonhosted.org/packages/f5/52/0763d1d976d5c262df53ddda8d8d4719eedf9594d046f117c25a27261a19/platformdirs-4.2.2.tar.gz", hash = "sha256:38b7b51f512eed9e84a22788b4bce1de17c0adb134d6becb09836e37d8654cd3"},
@@ -1249,6 +1284,10 @@ content_hash = "sha256:d8576b732182c33dcca09d0e9407b105d0ec537447ddf814172d05029
 "six 1.16.0" = [
     {url = "https://files.pythonhosted.org/packages/71/39/171f1c67cd00715f190ba0b100d606d440a28c93c7714febeca8b79af85e/six-1.16.0.tar.gz", hash = "sha256:1e61c37477a1626458e36f7b1d82aa5c9b094fa4802892072e49de9c60c4c926"},
     {url = "https://files.pythonhosted.org/packages/d9/5a/e7c31adbe875f2abbb91bd84cf2dc52d792b5a01506781dbcf25c91daf11/six-1.16.0-py2.py3-none-any.whl", hash = "sha256:8abb2f1d86890a2dfb989f9a77cfcfd3e47c2a354b01111771326f8aa26e0254"},
+]
+"stevedore 5.2.0" = [
+    {url = "https://files.pythonhosted.org/packages/e7/c1/b210bf1071c96ecfcd24c2eeb4c828a2a24bf74b38af13896d02203b1eec/stevedore-5.2.0.tar.gz", hash = "sha256:46b93ca40e1114cea93d738a6c1e365396981bb6bb78c27045b7587c9473544d"},
+    {url = "https://files.pythonhosted.org/packages/eb/f1/c7c6205c367c764ee173537f7eaf070bba4dd0fa11bf081813c2f75285a3/stevedore-5.2.0-py3-none-any.whl", hash = "sha256:1c15d95766ca0569cad14cb6272d4d31dae66b011a929d7c18219c176ea1b5c9"},
 ]
 "tokenize-rt 5.2.0" = [
     {url = "https://files.pythonhosted.org/packages/23/9c/1405c291295e26f94475bd76ba581e216b62389be28b031a98e370f981bb/tokenize_rt-5.2.0.tar.gz", hash = "sha256:9fe80f8a5c1edad2d3ede0f37481cc0cc1538a2f442c9c2f9e4feacd2792d054"},
