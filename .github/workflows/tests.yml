@@ -1,0 +1,64 @@
+---
+name: Tests
+
+"on":
+  - push
+  - pull_request
+
+jobs:
+  tests:
+    name: ${{ matrix.session }} ${{ matrix.python }} / ${{ matrix.os }}
+    runs-on: ${{ matrix.os }}
+    strategy:
+      fail-fast: false
+      matrix:
+        include:
+          - { python: "3.12", os: "ubuntu-latest", session: "pre-commit" }
+
+          - { python: "3.10", os: "ubuntu-latest", session: "safety" }
+
+          - { python: "3.12", os: "ubuntu-latest", session: "tests" }
+          - { python: "3.12", os: "windows-latest", session: "tests" }
+          - { python: "3.12", os: "macos-latest", session: "tests" }
+          - { python: "3.11", os: "ubuntu-latest", session: "tests" }
+          - { python: "3.10", os: "ubuntu-latest", session: "tests" }
+          - { python: "3.9", os: "ubuntu-latest", session: "tests" }
+
+    env:
+      NOXSESSION: ${{ matrix.session }}
+      FORCE_COLOR: "1"
+      PRE_COMMIT_COLOR: "always"
+
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python ${{ matrix.python }}
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ matrix.python }}
+
+      - name: Setup PDM
+        uses: pdm-project/setup-pdm@v4
+      - name: Install dependencies
+        run: pdm install
+
+      - name: Run pre-commit
+        if: matrix.session == 'pre-commit'
+        run: pdm run pre-commit run -a
+
+      - name: Run safety
+        if: matrix.session == 'safety'
+        run: pdm run safety check --file pyproject.toml
+
+      - name: Run Tests
+        if: matrix.session == 'tests'
+        run: |
+          pdm run pytest --cov
+
+      - name: Upload coverage data
+        if: always() && matrix.session == 'tests'
+        uses: actions/upload-artifact@v3
+        with:
+          name: coverage-data
+          path: ".coverage.*"

@@ -9,7 +9,7 @@ license = {text = "BSD"}
 dependencies = [
     "six>=1.16.0",
 ]
-requires-python = ">=3.11"
+requires-python = ">=3.9"
 readme = "README.md"
 
 [project.optional-dependencies]
@@ -30,4 +30,5 @@ dev = [
     "flake8>=7.1.0",
     "pyupgrade>=3.17.0",
     "pre-commit-hooks>=4.6.0",
+    "safety>=3.2.4",
 ]
