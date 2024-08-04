@@ -33,4 +33,5 @@ dev = [
     "safety>=3.2.4",
     "bandit>=1.7.9",
     "wheel>=0.43.0",
+    "pdm-wheel>=0.1.2",
 ]

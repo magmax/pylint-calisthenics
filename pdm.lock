@@ -261,6 +261,12 @@ requires_python = ">=2.6"
 summary = "Python Build Reasonableness"
 
 [[package]]
+name = "pdm-wheel"
+version = "0.1.2"
+requires_python = ">=3.9"
+summary = "PDM plugin that save your requirements as wheels, similar to pip-wheel"
+
+[[package]]
 name = "platformdirs"
 version = "4.2.2"
 requires_python = ">=3.8"
@@ -574,7 +580,7 @@ summary = "A built-package format for Python"
 
 [metadata]
 lock_version = "4.0"
-content_hash = "sha256:203206aa4e50cb520f68d23bdb7f685456095bbe431ba018934cdabc5a06879e"
+content_hash = "sha256:bd8a264bd995401314333cc553ab3ee139e2f998fcab2ec59f31383342f2ab3f"
 
 [metadata.files]
 "annotated-types 0.7.0" = [
@@ -1003,6 +1009,10 @@ content_hash = "sha256:203206aa4e50cb520f68d23bdb7f685456095bbe431ba018934cdabc5
 "pbr 6.0.0" = [
     {url = "https://files.pythonhosted.org/packages/64/dd/171c9fb653591cf265bcc89c436eec75c9bde3dec921cc236fa71e5698df/pbr-6.0.0-py2.py3-none-any.whl", hash = "sha256:4a7317d5e3b17a3dccb6a8cfe67dab65b20551404c52c8ed41279fa4f0cb4cda"},
     {url = "https://files.pythonhosted.org/packages/8d/c2/ee43b3b11bf2b40e56536183fc9f22afbb04e882720332b6276ee2454c24/pbr-6.0.0.tar.gz", hash = "sha256:d1377122a5a00e2f940ee482999518efe16d745d423a670c27773dfbc3c9a7d9"},
+]
+"pdm-wheel 0.1.2" = [
+    {url = "https://files.pythonhosted.org/packages/a7/b5/456b4ba6c96608ed38698e24fabb5bf69e4ca1546bc6d175ed46c57232a4/pdm_wheel-0.1.2-py3-none-any.whl", hash = "sha256:a2f0884ab2ddff83410f101d3a5feec12fac23ab9a8657eeae26bd74d43f2766"},
+    {url = "https://files.pythonhosted.org/packages/bd/ce/224759c5ed38f7380f6004382b736075d779e9333292530102f27af34bf1/pdm_wheel-0.1.2.tar.gz", hash = "sha256:f382c3394fb41f0b928b25a8be91f35b7f7ffdea2ecdcfcec6d942b23b86bb37"},
 ]
 "platformdirs 4.2.2" = [
     {url = "https://files.pythonhosted.org/packages/68/13/2aa1f0e1364feb2c9ef45302f387ac0bd81484e9c9a4c5688a322fbdfd08/platformdirs-4.2.2-py3-none-any.whl", hash = "sha256:2d7a1657e36a80ea911db832a8a6ece5ee53d8de21edd5cc5879af6530b1bfee"},
